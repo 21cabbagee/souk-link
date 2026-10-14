@@ -2,9 +2,11 @@ import React, { useState } from 'react';
 import { 
   ShoppingBag, Sparkles, Send, ShieldCheck, ArrowRight, CheckCircle2, 
   AlertTriangle, RefreshCw, Layers, DollarSign, Database, Activity, 
-  Video, Wallet, Share2, MessageCircle, ChevronRight, X, Play
+  Video, Wallet, Share2, MessageCircle, ChevronRight, X, Play, TrendingUp
 } from 'lucide-react';
 import confetti from 'canvas-confetti';
+import ParticlesCanvas from './components/ParticlesCanvas';
+import OutcomeChart from './components/OutcomeChart';
 
 export default function App() {
   const [activeTab, setActiveTab] = useState('catalog'); // 'catalog' | 'reel_studio' | 'cod_bot' | 'wallet'
@@ -117,12 +119,18 @@ export default function App() {
         </div>
       </header>
 
-      {/* Hero Section */}
-      <section className="relative pt-12 pb-16 px-4 sm:px-6 lg:px-8 max-w-7xl mx-auto">
-        <div className="text-center max-w-4xl mx-auto space-y-4">
-          <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-slate-900 border border-slate-700/80 text-xs text-slate-300">
-            <span className="w-2 h-2 rounded-full bg-fuchsia-400 animate-pulse"></span>
-            Zero Warehouses • Arabic & Bahasa AI Video Reels • Pre-Dispatch COD Verification
+      {/* Hero Section with Casberry-style Particles Canvas */}
+      <section className="relative pt-16 pb-20 px-4 sm:px-6 lg:px-8 max-w-7xl mx-auto overflow-hidden">
+        {/* Interactive WebGL / Casberry Canvas Simulation */}
+        <ParticlesCanvas color="217, 70, 239" particleCount={50} connectionDistance={120} />
+
+        <div className="relative z-10 text-center max-w-4xl mx-auto space-y-5">
+          {/* Kokonut UI Shimmering Badge */}
+          <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-slate-900/90 border border-fuchsia-500/40 text-xs text-slate-200 shadow-lg shadow-fuchsia-500/10 backdrop-blur-md">
+            <span className="w-2 h-2 rounded-full bg-fuchsia-400 animate-ping"></span>
+            <span className="font-semibold text-fuchsia-300">Live Vernacular Commerce OS</span>
+            <span className="text-slate-500">•</span>
+            <span>Zero Warehouses • Arabic & Bahasa AI Video Reels • Pre-Dispatch COD Verification</span>
           </div>
 
           {/* EXACT H1 TAG */}
@@ -130,21 +138,27 @@ export default function App() {
             Capital-Light Vernacular Social Commerce: Empowering Local Resellers in MENA & SE Asia
           </h1>
 
-          <p className="text-base sm:text-lg text-slate-400 max-w-2xl mx-auto">
+          <p className="text-base sm:text-lg text-slate-300/90 max-w-2xl mx-auto">
             Launch a social boutique in 2 minutes without inventory risk. Share localized Arabic and Bahasa product reels on WhatsApp and TikTok, let suppliers drop-ship, and stop COD fraud.
           </p>
+
+          {/* Larry Ellison Playbook: Confuse the Tenses & Sell Harder Than You Build */}
+          <div className="inline-flex items-center gap-3 px-4 py-2 rounded-xl bg-fuchsia-950/40 border border-fuchsia-500/30 text-xs text-fuchsia-200">
+            <Sparkles className="w-4 h-4 text-fuchsia-400 shrink-0" />
+            <span><strong className="text-white">Service-as-a-Software Commerce Shield:</strong> Zero manual call center agencies. Pre-dispatch verification eliminates 80%+ of RTO shipping losses.</span>
+          </div>
 
           <div className="flex flex-wrap items-center justify-center gap-4 pt-2">
             <button 
               onClick={() => setActiveTab('reel_studio')}
-              className="px-6 py-3 rounded-xl bg-gradient-to-r from-fuchsia-500 to-pink-500 text-slate-950 font-bold text-sm hover:from-fuchsia-400 hover:to-pink-400 transition shadow-xl shadow-fuchsia-500/20 flex items-center gap-2"
+              className="px-6 py-3.5 rounded-xl bg-gradient-to-r from-fuchsia-500 to-pink-500 text-slate-950 font-bold text-sm hover:from-fuchsia-400 hover:to-pink-400 transition shadow-xl shadow-fuchsia-500/25 flex items-center gap-2 group cursor-pointer"
             >
-              <Sparkles className="w-4 h-4" />
+              <Sparkles className="w-4 h-4 group-hover:scale-110 transition-transform" />
               Generate Arabic/Bahasa Video Reel
             </button>
             <button 
               onClick={() => setActiveTab('cod_bot')}
-              className="px-6 py-3 rounded-xl bg-slate-900 border border-slate-700/80 text-slate-200 font-semibold text-sm hover:bg-slate-800 transition flex items-center gap-2"
+              className="px-6 py-3.5 rounded-xl bg-slate-900/90 border border-slate-700/80 text-slate-200 font-semibold text-sm hover:bg-slate-800 transition flex items-center gap-2 cursor-pointer backdrop-blur-md"
             >
               <ShieldCheck className="w-4 h-4 text-fuchsia-400" />
               Test WhatsApp COD Anti-Fraud Bot
@@ -152,24 +166,24 @@ export default function App() {
           </div>
 
           <div className="pt-6 grid grid-cols-2 md:grid-cols-4 gap-3 text-left max-w-3xl mx-auto">
-            <div className="p-3 rounded-lg bg-slate-900/60 border border-slate-800 text-xs">
+            <div className="p-3.5 rounded-xl bg-slate-900/70 border border-slate-800/80 text-xs backdrop-blur-md hover:border-fuchsia-500/30 transition">
               <span className="text-slate-400 block">Inventory Risk</span>
-              <span className="text-lg font-bold text-fuchsia-400">Zero Stock</span>
+              <span className="text-xl font-bold text-fuchsia-400">Zero Stock</span>
               <span className="text-[10px] text-slate-500 block">Direct Factory Drop-Ship</span>
             </div>
-            <div className="p-3 rounded-lg bg-slate-900/60 border border-slate-800 text-xs">
+            <div className="p-3.5 rounded-xl bg-slate-900/70 border border-slate-800/80 text-xs backdrop-blur-md hover:border-fuchsia-500/30 transition">
               <span className="text-slate-400 block">COD Return Rate (RTO)</span>
-              <span className="text-lg font-bold text-white">&lt; 9.2% RTO</span>
+              <span className="text-xl font-bold text-white">&lt; 9.2% RTO</span>
               <span className="text-[10px] text-slate-500 block">vs. 35% Industry Average</span>
             </div>
-            <div className="p-3 rounded-lg bg-slate-900/60 border border-slate-800 text-xs">
+            <div className="p-3.5 rounded-xl bg-slate-900/70 border border-slate-800/80 text-xs backdrop-blur-md hover:border-fuchsia-500/30 transition">
               <span className="text-slate-400 block">Languages Supported</span>
-              <span className="text-lg font-bold text-pink-400">العربية & Bahasa</span>
+              <span className="text-xl font-bold text-pink-400">العربية & Bahasa</span>
               <span className="text-[10px] text-slate-500 block">Localized Vernacular Media</span>
             </div>
-            <div className="p-3 rounded-lg bg-slate-900/60 border border-slate-800 text-xs">
+            <div className="p-3.5 rounded-xl bg-slate-900/70 border border-slate-800/80 text-xs backdrop-blur-md hover:border-fuchsia-500/30 transition">
               <span className="text-slate-400 block">Reseller Payout</span>
-              <span className="text-lg font-bold text-fuchsia-300">Instant Wallet</span>
+              <span className="text-xl font-bold text-fuchsia-300">Instant Wallet</span>
               <span className="text-[10px] text-slate-500 block">Credited on 3PL Clearance</span>
             </div>
           </div>
@@ -178,6 +192,15 @@ export default function App() {
 
       {/* Main Workspaces */}
       <main className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pb-20">
+        {/* Sequoia Framework Outcome Visualizer (Bklit UI + Julien Bek $1 vs $6 Ratio) */}
+        <div className="mb-12">
+          <OutcomeChart 
+            serviceName="Social Commerce & Pre-Dispatch COD Anti-Fraud"
+            defaultMonthlyOrders={3000}
+            onCtaClick={() => setCabModalOpen(true)}
+          />
+        </div>
+
         {/* Navigation Tabs */}
         <div className="flex border-b border-slate-800 mb-8 overflow-x-auto">
           <button 
